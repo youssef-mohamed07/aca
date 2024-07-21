@@ -1,8 +1,19 @@
+import React, { useState, useEffect } from "react";
 import GroupComponent1 from "./GroupComponent1";
 import GroupComponent from "./GroupComponent";
 import PropTypes from "prop-types";
-
+import { fetchVideos } from "../hooks/useShow";
 const AboutContent = ({ className = "" }) => {
+  const [videos, setVideos] = useState([]);
+
+  useEffect(() => {
+    const loadVideos = async () => {
+      const fetchedVideos = await fetchVideos();
+      setVideos(fetchedVideos);
+    };
+    loadVideos();
+  }, []);
+
   return (
     <section
       className={`self-stretch flex flex-col items-start justify-start gap-[112px] max-w-full text-right text-21xl text-blanc font-ibm-plex-sans-arabic mq450:gap-[28px] mq825:gap-[56px] ${className}`}
@@ -58,16 +69,10 @@ const AboutContent = ({ className = "" }) => {
             <div className="w-96 relative text-base leading-[21px] inline-block max-w-full">{`تستطيع تصفح طرق و أساليب الاكاديمية في الحصص التدريبية `}</div>
           </div>
           <div className="self-stretch flex flex-row items-start justify-start gap-[24px] max-w-full text-xl lg:flex-wrap">
-            <GroupComponent1 />
+            <GroupComponent1 video={videos[0]} />
             <div className="w-[383px] flex flex-col items-start justify-start gap-[16px] min-w-[383px] max-w-full text-base lg:flex-1 mq450:min-w-full">
-              <GroupComponent
-                rectangle4="/rectangle-4-6@2x.png"
-                group89092="/group-89092-1@2x.png"
-              />
-              <GroupComponent
-                rectangle4="/rectangle-4-7@2x.png"
-                group89092="/group-89092-2@2x.png"
-              />
+              <GroupComponent video={videos[1]} />
+              <GroupComponent video={videos[2]} />
             </div>
           </div>
         </div>
