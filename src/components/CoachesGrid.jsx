@@ -8,7 +8,7 @@ const CoachesGrid = () => {
 
   if (isLoading) {
     return (
-      <div className="flex justify-center items-center h-screen">
+      <div className="flex justify-center items-center h-screen w-full">
         <BounceLoader color="#ffffff" size={60} />
       </div>
     );
@@ -17,7 +17,7 @@ const CoachesGrid = () => {
   if (isError) {
     return (
       <section
-        className="min-h-screen p-4 sm:p-8 lg:p-16"
+        className="min-h-screen w-full p-4 sm:p-8 lg:p-16"
         style={{
           backgroundImage: 'url(back.jpeg)', // Ensure the path is correct
           backgroundSize: 'cover',
@@ -34,7 +34,7 @@ const CoachesGrid = () => {
   if (!coaches?.length) {
     return (
       <section
-        className="min-h-screen p-4 sm:p-8 lg:p-16"
+        className="min-h-screen w-full p-4 sm:p-8 lg:p-16"
         style={{
           backgroundImage: 'url(back.jpeg)', // Ensure the path is correct
           backgroundSize: 'cover',
@@ -50,7 +50,7 @@ const CoachesGrid = () => {
 
   return (
     <div
-      className="py-16"
+      className="py-16 w-full"
       style={{
         backgroundImage: 'url(back.jpeg)', // Ensure the path is correct
         backgroundSize: 'cover',

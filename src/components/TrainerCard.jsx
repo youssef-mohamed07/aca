@@ -24,6 +24,7 @@ TrainerCard.propTypes = {
     coachName: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     imgSrc: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired, // Ensure price is included and is a number
   }).isRequired,
 };
 
